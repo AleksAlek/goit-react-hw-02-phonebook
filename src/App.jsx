@@ -19,7 +19,9 @@ class App extends Component {
   }
 
   handleFilter({ value }) {
-    this.setState({ filter: value });
+    const modifiedValue = value.toLowerCase();
+
+    this.setState({ filter: modifiedValue });
   }
 
   handleDelete(id) {
