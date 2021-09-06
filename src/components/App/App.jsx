@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
-import AddContactForm from "./components/AddContactForm/AddContactForm";
-import Filter from "./components/Filter/Filter";
-import ContactList from "./components/ContactList/ContactList";
+import AddContactForm from "../AddContactForm/AddContactForm";
+import Filter from "../Filter/Filter";
+import ContactList from "../ContactList/ContactList";
 
-import "./App.css";
+import styles from "./App.module.css";
 
 class App extends Component {
   state = {
@@ -13,12 +13,15 @@ class App extends Component {
   };
 
   handleAddContact(newContact) {
-    const { contacts } = this.state;
-
-    this.setState({ contacts: [...contacts, newContact] });
+    console.log(this.state);
+    this.setState((prevState) => ({
+      contacts: [...prevState.contacts, newContact],
+    }));
   }
 
-  handleFilter({ value }) {
+  handleFilter(event) {
+    const { value } = event.target;
+
     const modifiedValue = value.toLowerCase();
 
     this.setState({ filter: modifiedValue });
@@ -37,7 +40,7 @@ class App extends Component {
 
     // Добавлял к функциям .bind(this), иначе падал рендер
     return (
-      <div className="main-container">
+      <div className={styles.mainContainer}>
         <h1>Phonebook</h1>
         <AddContactForm
           handleAddContact={this.handleAddContact.bind(this)}

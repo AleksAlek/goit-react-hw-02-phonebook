@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import shortid from "shortid";
 
-import "./AddContactForm.styles.css";
+import styles from "./AddContactForm.module.css";
 
 class AddContactForm extends Component {
   state = {
@@ -41,11 +41,11 @@ class AddContactForm extends Component {
     const { name, number } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit.bind(this)} className="add-form">
-        <label className="form-label">
+      <form onSubmit={this.handleSubmit.bind(this)} className={styles.addForm}>
+        <label className={styles.formLabel}>
           Name
           <input
-            className="form-input"
+            className={styles.formInput}
             value={name}
             type="text"
             name="name"
@@ -56,10 +56,10 @@ class AddContactForm extends Component {
           />
         </label>
 
-        <label className="form-label">
+        <label className={styles.formLabel}>
           Number
           <input
-            className="form-input"
+            className={styles.formInput}
             value={number}
             type="tel"
             name="number"
@@ -70,7 +70,7 @@ class AddContactForm extends Component {
           />
         </label>
 
-        <button type="submit" className="form-btn">
+        <button type="submit" className={styles.formBtn}>
           Add contact
         </button>
       </form>
