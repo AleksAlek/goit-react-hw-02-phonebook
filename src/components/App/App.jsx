@@ -22,9 +22,7 @@ class App extends Component {
   handleFilter(event) {
     const { value } = event.target;
 
-    const modifiedValue = value.toLowerCase();
-
-    this.setState({ filter: modifiedValue });
+    this.setState({ filter: value });
   }
 
   handleDelete(id) {
